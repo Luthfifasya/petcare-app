@@ -4,7 +4,7 @@ import "time"
 
 type Appointment struct {
 	ID          uint      `gorm:"primaryKey" json:"id"`
-	PetID       uint      `json:"pet_id"`
+	PetID       uint      `json:"pet_id"` //FK
 	TreatmentID uint      `json:"treatment_id"`
 	ClinicID    uint      `json:"clinic_id"`
 	ScheduledAt time.Time `json:"scheduled_at"`

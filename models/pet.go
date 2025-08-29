@@ -9,9 +9,13 @@ type Pet struct {
 	Breed     string    `json:"breed"`
 	Gender    string    `json:"gender"`
 	BirthDate time.Time `json:"birth_date"`
+	CreatedAt time.Time `json:"created_at"`
+	UpdatedAt time.Time `json:"updated_at"`
 
-	OwnerID uint `json:"owner_id"` // FK → User
-	Owner   User `gorm:"foreignKey:OwnerID" json:"owner"`
+	// Foreign key → User
+	UserID uint `json:"user_id"`
+	User   User `gorm:"foreignKey:UserID" json:"user"`
 
-	Appointments []Appointment `json:"appointments"`
+	// Relasi One-to-Many → Appointment
+	Appointments []Appointment `gorm:"foreignKey:PetID;constraint:OnUpdate:CASCADE,OnDelete:CASCADE;" json:"appointments"`
 }

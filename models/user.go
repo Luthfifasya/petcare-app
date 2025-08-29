@@ -8,8 +8,10 @@ type User struct {
 	Email     string    `gorm:"unique" json:"email"`
 	Phone     string    `json:"phone"`
 	Address   string    `json:"address"`
+	Password  string    `json:"-"` // disembunyikan dari JSON
 	CreatedAt time.Time `json:"created_at"`
 	UpdatedAt time.Time `json:"updated_at"`
 
-	Pets []Pet `json:"pets"` // Relasi One-to-Many
+	// Relasi One-to-Many → Pet
+	Pets []Pet `gorm:"foreignKey:UserID" json:"pets"`
 }
