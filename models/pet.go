@@ -8,6 +8,7 @@ type Pet struct {
 	Species   string    `json:"species"`
 	Breed     string    `json:"breed"`
 	Gender    string    `json:"gender"`
+	Age       uint      `json:"age"`
 	BirthDate time.Time `json:"birth_date"`
 	CreatedAt time.Time `json:"created_at"`
 	UpdatedAt time.Time `json:"updated_at"`
