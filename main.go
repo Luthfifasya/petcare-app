@@ -17,7 +17,11 @@ func main() {
 	database.InitDB()
 
 	// AutoMigrate
-	database.DB.AutoMigrate(&models.User{})
+	database.DB.AutoMigrate(
+		&models.User{},
+		&models.Pet{},
+		&models.Appointment{},
+	)
 
 	// Setup router
 	r := gin.Default()
