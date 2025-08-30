@@ -21,6 +21,7 @@ func main() {
 		&models.User{},
 		&models.Pet{},
 		&models.Appointment{},
+		&models.Treatment{},
 	)
 
 	// Setup router

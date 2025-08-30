@@ -33,4 +33,14 @@ func SetupRoutes(r *gin.Engine) {
 		appointment.PUT("/:id", controllers.UpdateAppointment)
 		appointment.DELETE("/:id", controllers.DeleteAppointment)
 	}
+
+	treatment := api.Group("/treatment")
+	treatment.Use(middleware.JWTAuth())
+	{
+		treatment.GET("", controllers.GetTreatments)
+		treatment.POST("", controllers.CreateTreatment)
+		treatment.GET("/:id", controllers.GetAppointmentByID)
+		treatment.PUT("/:id", controllers.UpdateTreatment)
+		treatment.DELETE("/:id", controllers.DeleteTreatment)
+	}
 }

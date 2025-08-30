@@ -16,7 +16,7 @@ func CreatePet(c *gin.Context) {
 		return
 	}
 
-	// Cek apakah user_id valid
+	// Validasi apakah user_id valid
 	var user models.User
 	if err := database.DB.First(&user, pet.UserID).Error; err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": "User not found"})

@@ -27,7 +27,7 @@ func CreateAppointment(c *gin.Context) {
 // GetAppointments - ambil semua appointment
 func GetAppointments(c *gin.Context) {
 	var appointments []models.Appointment
-	if err := database.DB.Preload("Pet").Preload("Treatment").Find(&appointments).Error; err != nil {
+	if err := database.DB.Preload("Pet").Preload("Treatment").Preload("Treatment").Find(&appointments).Error; err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to fetch appointments"})
 		return
 	}

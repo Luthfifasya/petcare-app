@@ -16,7 +16,7 @@ type Claims struct {
 
 // GenerateJWT membuat token JWT
 func GenerateJWT(userID uint) (string, error) {
-	expirationTime := time.Now().Add(24 * time.Hour) // token berlaku 24 jam
+	expirationTime := time.Now().Add(1 * time.Hour) // token berlaku 1 jam
 
 	claims := &Claims{
 		UserID: userID,
