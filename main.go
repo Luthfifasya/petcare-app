@@ -1,7 +1,5 @@
 package main
 
-<<<<<<< HEAD
-=======
 import (
 	"fmt"
 	"log"
@@ -13,22 +11,8 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
->>>>>>> f748c10 (finalisasi project (masih ada revisi sepertinya))
 func main() {
-
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-	// AutoMigrate
-	database.DB.AutoMigrate(
-		&models.User{},
-		&models.Pet{},
-		&models.Appointment{},
-		&models.Treatment{},
-	)
-
-=======
->>>>>>> f748c10 (finalisasi project (masih ada revisi sepertinya))
+	database.InitDB()
 	// Setup router
 	r := gin.Default()
 	routes.SetupRoutes(r)
@@ -43,5 +27,4 @@ func main() {
 	if err := r.Run(addr); err != nil {
 		log.Fatal("Server failed to start:", err)
 	}
->>>>>>> 57fa210 (menambahkan appointmentControoler)
 }
